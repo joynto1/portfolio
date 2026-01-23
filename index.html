@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="RabEUvn87m487zBMY5dmdUBjUJpUOa_RgHsYWk5-64A" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joyonto Kumar Das</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader"></div>
@@ -39,7 +40,7 @@
             </nav>
             
             <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
             </button>
         </div>
     </header>
@@ -484,18 +485,19 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form name="contact" id="contactForm" data-netlify="true" method="post">
+                        <input type="hidden" name="form-name" value="contact">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required placeholder="Enter your full name">
+                            <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your full name">
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" required placeholder="Enter your email address">
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email address">
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" required placeholder="Enter your message here..."></textarea>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Enter your message here..."></textarea>
                         </div>
                         <div class="form-group form-submit">
                             <button type="submit" class="btn btn-primary">

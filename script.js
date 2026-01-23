@@ -284,21 +284,21 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll(); // Initial check
 
-        // Form submission
+        // Form submission - Netlify Forms with AJAX
         const contactForm = document.getElementById('contactForm');
         const submitBtn = contactForm.querySelector('.btn');
-        const btnText = submitBtn.querySelector('.btn-text');
         
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Show loading state
             submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
             
             // Show loading toast
-            const loadingToast = Toastify({
+            Toastify({
                 text: "Sending your message...",
-                duration: 5000,
+                duration: 3000,
                 gravity: "top",
                 position: "right",
                 style: {
@@ -306,13 +306,21 @@
                     borderRadius: "8px",
                     boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
                 }
-            });
-            loadingToast.showToast();
+            }).showToast();
             
-            // Simulate API call
-            setTimeout(() => {
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Submit to Netlify
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
                 // Remove loading state
                 submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
                 
                 // Show success toast
                 Toastify({
@@ -327,31 +335,27 @@
                     }
                 }).showToast();
                 
-                // Get form input elements
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const messageInput = document.getElementById('message');
+                // Clear all input fields
+                contactForm.reset();
+            })
+            .catch((error) => {
+                // Remove loading state
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
                 
-                // Clear form fields
-                nameInput.value = '';
-                emailInput.value = '';
-                messageInput.value = '';
-                
-                // Remove any validation states
-                nameInput.classList.remove('error', 'success');
-                emailInput.classList.remove('error', 'success');
-                messageInput.classList.remove('error', 'success');
-                
-                // Remove loading toast
-                loadingToast.hideToast();
-                
-                // Add a small animation to confirm clearing
-                contactForm.classList.add('submitted');
-                setTimeout(() => {
-                    contactForm.classList.remove('submitted');
-                }, 1000);
-                
-            }, 2000);
+                // Show error toast
+                Toastify({
+                    text: "Oops! Something went wrong. Please try again.",
+                    duration: 4000,
+                    gravity: "top",
+                    position: "right",
+                    style: {
+                        background: "linear-gradient(to right, #ef476f, #f72585)",
+                        borderRadius: "8px",
+                        boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                    }
+                }).showToast();
+            });
         });
 
         // Header scroll effect
