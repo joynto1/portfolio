@@ -24,7 +24,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -104,10 +104,14 @@ export default function Contact() {
             <form 
               name="contact" 
               method="POST" 
+              action="/__forms.html"
               data-netlify="true"
+              data-netlify-honeypot="bot-field"
               ref={formRef} 
               onSubmit={handleSubmit}
             >
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" />
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input
