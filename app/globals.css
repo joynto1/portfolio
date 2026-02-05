@@ -311,13 +311,14 @@ nav a:hover::after {
   position: relative;
   display: inline-block;
   min-width: 18ch;
-  text-align: left;
+  text-align: center;
 }
 
 .role-rotator .role-item {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
+  transform: translateX(-50%);
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -335,6 +336,7 @@ nav a:hover::after {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s forwards 0.9s;
+  text-align: justify;
 }
 
 .hero-btns {
@@ -456,6 +458,7 @@ nav a:hover::after {
 .about-text p {
   margin-bottom: 20px;
   font-size: 1.1rem;
+  text-align: justify;
 }
 
 /* Skills Section */
@@ -639,6 +642,7 @@ nav a:hover::after {
   margin-bottom: 20px;
   color: var(--text-dark);
   opacity: 0.8;
+  text-align: justify;
 }
 
 .project-links {
@@ -789,6 +793,10 @@ nav a:hover::after {
   opacity: 0.8;
   margin-bottom: 10px;
   font-weight: 500;
+}
+
+.timeline-content p {
+  text-align: justify;
 }
 
 /* Contact Section */
@@ -1137,6 +1145,13 @@ footer {
   
   .hero-text .role {
     font-size: 1.2rem;
+    display: block;
+    text-align: center;
+  }
+  
+  .role-rotator {
+    display: block;
+    text-align: center;
   }
   
   .hero-text p {
@@ -1193,6 +1208,13 @@ footer {
   
   .hero-text .role {
     font-size: 1.1rem;
+    display: block;
+    text-align: center;
+  }
+  
+  .role-rotator {
+    display: block;
+    text-align: center;
   }
   
   .section-title h2 {
