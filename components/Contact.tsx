@@ -104,7 +104,7 @@ export default function Contact() {
             <form 
               name="contact" 
               method="POST" 
-              netlify
+              data-netlify="true"
               ref={formRef} 
               onSubmit={handleSubmit}
             >
