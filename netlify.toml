@@ -9,7 +9,7 @@
   status = 200
 
 [functions]
-  nodejs_bundler = "esbuild"
+  node_bundler = "esbuild"
 
 [env]
   NEXT_PUBLIC_SITE_URL = "https://yourdomain.com"
