@@ -92,7 +92,7 @@ export default function Hero() {
             <a href="mailto:mr.joyontokumardas@gmail.com" className="btn btn-primary">
               <i className="fas fa-paper-plane"></i> Hire Me
             </a>
-            <a href="/documents/Joyonto_Resume.pdf"  target="_blank" rel="noopener noreferrer" className="btn btn-resume">
+            <a  href="/documents/Joyonto_Resume.pdf"  target="_blank" rel="noopener noreferrer" className="btn btn-resume">
               <i className="fas fa-download"></i> Resume
             </a>
           </div>
