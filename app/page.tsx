@@ -13,10 +13,10 @@ import ClientLayout from "@/components/ClientLayout";
 
 export const metadata: Metadata = {
   title: "Joyonto Kumar Das",
-  description: "Frontend Developer & DevOps Intern - Portfolio",
+  description: "Frontend Developer & DevOps - Portfolio",
   openGraph: {
     title: "Joyonto Kumar Das",
-    description: "Frontend Developer & DevOps Intern - Portfolio",
+    description: "Frontend Developer & DevOps - Portfolio",
     type: "website",
   },
 };
